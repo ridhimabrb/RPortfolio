@@ -254,8 +254,8 @@ html {
 .fancy-btn {
   display: inline-block;
   padding: 12px 22px;
-  background: linear-gradient(135deg, #567dcb, #182069);
-  color: white;
+  background: linear-gradient(135deg, #e9dc95, #eedd82);
+  color: rgb(0, 0, 0);
   font-weight: bold;
   text-decoration: none;
   border-radius: 14px;
