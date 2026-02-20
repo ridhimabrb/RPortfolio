@@ -58,8 +58,34 @@ function App() {
 
         <div className="projects-grid">
           <a
-           href="https://ridhimabrb.github.io/Birthday-Cake/"
+           href="https://trading-analyst-hd2do6ygvbeyuw33bjb4nx.streamlit.app/"
            target="_blank"
+           rel="noopener noreferrer"
+           className="project-card"
+         >
+           <h3>📌 QuantScope</h3>
+           <p>An end-to-end AI-powered trading analysis system that predicts short-term market direction using machine learning and live market data.</p>
+         </a>
+         <a
+           href="https://ridhimabrb.github.io/CrisisMesh/"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="project-card"
+         >
+           <h3>📌 Crisis Mesh</h3>
+           <p>Real-time humanitarian coordination platform connecting disaster victims with responders using Firebase and structured data views.</p>
+         </a>
+         <a
+           href="https://ridhimabrb.github.io/Pixelated/"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="project-card"
+         >
+           <h3>📌 Pixelated</h3>
+           <p>Pixelated is a data-driven emotion journal that transforms daily thoughts into a visual memory archive, analyzing each entry using Hugging Face NLP models </p>
+         </a>
+         <a
+           href="https://ridhimabrb.github.io/Birthday-Cake/"
            rel="noopener noreferrer"
            className="project-card"
          >
