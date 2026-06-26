@@ -91,7 +91,7 @@ function App() {
       whileHover={{ scale: 1.08, y: -4 }}
       transition={{
         duration: 0.3,
-        delay: index * 0.05,
+        delay: 0.05,
       }}
       viewport={{ once: true }}
     >
