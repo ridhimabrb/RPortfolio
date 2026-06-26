@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
+.typing-text {
+  font-size: 1.3rem;   
+  font-weight: 500;
+  color: #ffffff;      
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +44,170 @@
 
 .read-the-docs {
   color: #888;
+}
+.main-title{
+  font-family: 'Rowdies', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.role-text{
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.4rem;
+  color: #c7d7ff;
+  margin-top: 20px;
+}
+.section-title {
+  font-family: 'Rowdies', sans-serif;
+  font-weight: 400;
+}
+.cursor-glow{
+  position: fixed;
+  width: 150px;
+  height: 150px;
+
+  background: radial-gradient(
+      circle,
+      rgba(236, 206, 56, 0.15) 0%,
+      transparent 40%
+  );
+
+  pointer-events:none;
+
+  transform: translate(-50%,-50%);
+  z-index:0;
+}
+.projects-list{
+    width: min(1000px,90%);
+    margin:50px auto;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+.project-row{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:25px;
+
+    text-decoration:none;
+    color:inherit;
+
+    padding:23px;
+
+    border:2px solid rgba(255,255,255,.08);
+    border-radius:26px;
+
+    background:#F6E8AE;
+    opacity:.85;
+    transition:.35s ease;
+}
+
+.project-row:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,.05);
+    background: #d2c9a5;
+}
+
+.project-number{
+    font-size:3rem;
+    font-weight:700;
+    color:#120a54;
+    opacity:.65;
+    line-height:1;
+}
+
+.project-content h3{
+    font-size:2rem;
+    margin-bottom:15px;
+    color:#120a54;
+}
+
+.project-content p{
+    max-width:720px;
+
+    font-size:1.15rem;
+    line-height:1.8;
+    color:#000000;
+
+    margin-bottom:15px;
+}
+
+.project-link{
+    font-weight:600;
+    color:#192b68;
+    letter-spacing:.03em;
+}
+
+.project-row:hover .project-link{
+    letter-spacing:.08em;
+}
+
+@media(max-width:768px){
+
+.project-row{
+
+grid-template-columns:1fr;
+gap:18px;
+padding:20px;
+
+}
+
+.project-number{
+
+font-size:2.3rem;
+
+}
+
+.project-content h3{
+
+font-size:1.6rem;
+
+}
+
+}
+.writing-intro{
+    font-family: "RidhimaHandwriting"; 
+    font-size: 2rem;
+    line-height: 1.5;
+    color: white;
+    max-width: 700px;
+}
+.article-paper{
+    background:
+        linear-gradient(rgba(248,240,214,.25),
+                        rgba(243,232,199,.25)),
+        url("/paper.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    padding:60px;
+    padding-top:20px;
+    border-radius:8px;
+    transform:rotate(-0.4deg);
+
+    transition:.35s;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+
+
+    color:#3f3222;
+}
+.article-paper:hover{
+    transform:rotate(-1deg) scale(1.01);
+}
+.article-heading{
+    font-family:'Rowdies', cursive;
+    font-size:2.2rem;
+    margin-bottom:25px;
+    color:#4b3422;
+}
+.article-paper p{
+    font-family: Georgia, serif;
+    font-size:1.18rem;
+    line-height:1.9;
+    color:#3b3126;
 }

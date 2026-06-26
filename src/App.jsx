@@ -1,16 +1,45 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Navbar from "./components/Navbar";
 import "./index.css";
-
+import './App.css'
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 function App() {
+  useEffect(() => {
+    const cursor = document.querySelector(".cursor-glow");
+
+    const move = (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    };
+
+    window.addEventListener("mousemove", move);
+
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
   return (
     <>
+    <div className="cursor-glow"></div>
+    
     <Navbar />
     <div className="app-container">
       <div className="intro-block">
         <h1 className="main-title">Hi, I'm <span className="highlight">Ridhima Pant</span></h1>
-        <p className="role-text">2nd Year Computer Science Undergraduate</p> 
+        <TypeAnimation
+          className="typing-text"
+          sequence={[
+            "Computer Science Undergraduate @IGDTUW'28",
+            1500,
+            "AI & Machine Learning Enthusiast",
+            1500,
+            "Passionate about GenAI and Deep Learning",
+            1500,
+          ]}
+          speed={50}
+          repeat={Infinity}
+          />
         
 
         <div className="resume-icons">
@@ -35,88 +64,159 @@ function App() {
   
 </div> <br />
 
-<h2 className="skills-heading">Skills</h2>
+<motion.h2
+  className="skills-heading"
+  initial={{ opacity: 0, y: -30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+>
+  Skills
+</motion.h2>
 
 <div className="skills-wrapper">
   {[
-    "C, C++ languages",
-    "Python, Machine Learning",
-    "JavaScript",
-    "MySQL, DBMS",
-    "HTML & CSS",
-    "Vite & React Basics",
-    "Figma, Blender"
+    "C, C++ ",
+    "Python", "Machine Learning", "Generative AI", "SHAP",
+    "JavaScript", "Typescript",
+    "DBMS, SQL", "Data Structures and Algorithms","OOPS", "DevOps",
+    "Computer Networks",
+    "Vite", "React ","Arduino", "Hardware- 8051", "ESP 32", "RaspberryPi OS", "Linux", "Git, Github"
   ].map((skill, index) => (
-    <span key={index} className="skill-pill">{skill}</span>
+    <motion.span
+      key={index}
+      className="skill-pill"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.08, y: -4 }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.05,
+      }}
+      viewport={{ once: true }}
+    >
+      {skill}
+    </motion.span>
   ))}
 </div>
 
 
       </div>
       <section id="projects" className="projects">
-        <h3 className="section-title">Some of My Projects</h3>
+        <motion.h2
+        className="section-title"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Some of My Projects
+      </motion.h2>
 
-        <div className="projects-grid">
-          <a
-           href="https://trading-analyst-hd2do6ygvbeyuw33bjb4nx.streamlit.app/"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="project-card"
-         >
-           <h3>📌 QuantScope</h3>
-           <p>An end-to-end AI-powered trading analysis system that predicts short-term market direction using machine learning and live market data.</p>
-         </a>
-         <a
-           href="https://ridhimabrb.github.io/CrisisMesh/"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="project-card"
-         >
-           <h3>📌 Crisis Mesh</h3>
-           <p>Real-time humanitarian coordination platform connecting disaster victims with responders using Firebase and structured data views.</p>
-         </a>
-         <a
-           href="https://ridhimabrb.github.io/Pixelated/"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="project-card"
-         >
-           <h3>📌 Pixelated</h3>
-           <p>Pixelated is a data-driven emotion journal that transforms daily thoughts into a visual memory archive, analyzing each entry using Hugging Face NLP models </p>
-         </a>
-         <a
-           href="https://ridhimabrb.github.io/Birthday-Cake/"
-           rel="noopener noreferrer"
-           className="project-card"
-         >
-           <h3>📌 Birthday Cake</h3>
-           <p>Interactive birthday cake where you can light and blow out candles :D</p>
-         </a>
-         <a
-           href="https://ridhimabrb.github.io/Music-FindR/"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="project-card"
-         >
-           <h3>📌 Music FindR</h3>
-           <p>Enter an artist's name to see all their albums and release dates, and play on Spotify</p>
-         </a>
-         <a
-           href="https://ridhimabrb.github.io/K-Nearest-Neighbors-Model/"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="project-card"
-         >
-           <h3>📌 KNN Algorithm Visualizer</h3>
-           <p>A p5.js interactive project that performs k-nearest neighbors classification based on your cursor position</p>
-         </a>
+        <div className="projects-list">
+          <motion.a
+            href="https://trading-analyst-hd2do6ygvbeyuw33bjb4nx.streamlit.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-row"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+
+            transition={{
+              duration: 0.7,
+              ease: "easeOut"
+            }}
+
+            viewport={{ once: true }}
+          >
+            <div className="project-number">01</div>
+
+            <div className="project-content">
+              
+              <h3>📌 QuantScope</h3>
+
+              <p>
+                An end-to-end AI-powered trading analysis system that predicts
+                short-term market direction using machine learning and live market
+                data.
+              </p>
+
+              <span className="project-link">
+                View Project →
+              </span>
+            </div>
+          </motion.a>
+
+          <motion.a
+            href="https://ridhimabrb.github.io/Pixelated/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-row"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+
+            transition={{
+              duration: 0.7,
+              delay: 0.15,
+            }}
+
+            viewport={{ once: true }}
+          >
+            <div className="project-number">02</div>
+
+            <div className="project-content">
+              <h3>📌 Pixelated</h3>
+
+              <p>
+                A data-driven emotion journal that transforms daily thoughts into a
+                visual memory archive using Hugging Face NLP models.
+                
+              </p>
+
+              <span className="project-link">
+                View Project →
+              </span>
+            </div>
+          </motion.a>
+
+
+          <motion.a
+            href=" https://ridhimabrb.github.io/CrisisMesh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-row"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+
+            transition={{
+              duration: 0.7,
+              delay: 0.30,
+            }}
+
+            viewport={{ once: true }}
+          >
+            <div className="project-number">03</div>
+
+            <div className="project-content">
+              <h3>📌 Crisis Mesh</h3>
+
+              <p>
+                Real-time humanitarian coordination platform connecting disaster
+                victims with responders using Firebase and structured data views.
+              </p>
+
+              <span className="project-link">
+                View Project →
+              </span>
+            </div>
+          </motion.a>
 
         </div>
       </section>
       
       <section id="writing" className="section writing-section">
        <h2 className="section-title">Writing</h2>
-       <p >Ever since I can remember, writing has been an integral part of my life. <br /> Be it essays, journal entries, poems, news articles, I genuinely enjoy doing it all.<br /> I got a poetry book published in 2020 and have a writing blog I started in 2019 linked here!</p>
+       <p className="writing-intro">Ever since I can remember, writing has been an integral part of my life. Be it articles, journal entries, poems, news documentation, I genuinely enjoy doing it all.<br />  I got a poetry book published in <b>2020</b> and have a writing blog I started in <b>2019</b> linked here! <br/> <b>Fun Fact : This font is actually my handwriting!</b> </p>
        <a 
          href="https://www.amazon.in/Heart-Head-Hand-Ridhima-Pant/dp/9390468159" 
          target="_blank"
@@ -124,32 +224,124 @@ function App() {
          className="fancy-btn"
        >
          BOOK LINK
-       </a> <br /><br />
+       </a> 
        <a 
          href="https://pantridhima2323.wixsite.com/goldclouddiaries" 
          target="_blank"
          rel="noopener noreferrer"
          className="fancy-btn"
        >
+
          BLOG LINK
        </a>
-       <h2>Article- Everyone needs to get more Anti-AI right away</h2>
-       <p>The forced inclusion of AI in every sphere of life is now not only frustrating but terrifying too. On November 20, 2025 Google launched Nano Banana Pro, an AI image generation tool. I had been meaning to write on my disfavour of artificial intelligence since long, but seeing the images generated by Nano Banana Pro and people's reactions to it was really the trigger. Artificial intelligence is an asset to society only for as long as it is used advantageously and with decent intentions. And to think that is possible in today's world would be foolishness. <br />
+       <div className="article-paper">
+       <h2 className="article-heading">Article- How Hedge Funds Use Satellite Images to Predict Earnings</h2>
+       <p>While surfing the internet, I came across a video showing a satellite image of a Walmart parking lot.
+
+At first glance it looked completely unremarkable. Hundreds of tiny dots representing cars, a large rectangular building in the middle, and roads branching outward like veins.
+
+The image actually sent me down a rabbit hole when I started exploring why a hedge fund would pay good money for that image.
+
+That might sound ridiculous.
+
+Why would anyone managing billions of dollars care about a photograph of a parking lot? <br/>The answer is very interesting, they don't care about the photograph. They care about the information hidden inside it, something as plain as a parking lot image is extensively utilized by hedge funds and quantitative trading firms. I had never thought of it this way.
+
+And this realization led me down a rabbit hole that connected satellite imagery, machine learning, computer vision, alternative data, and quantitative finance.
 
 
-So basically, the images generated by Nano Banana Pro are so realistic you cannot distinguish them from a real photograph. Bottomline, the age of photogenic evidence is over. The smooth texture that helped us identify artificially generated images is GONE now. I think not everyone is comprehending how crazy this is and the downside it comes with. We have reached that point where we straight up won't be able to distinguish a fake image from a real one. Someone could generate a believable photo of you without consent and you'd be helpless as there's no proof really of it being fake. And people would BELIEVE it. Not just at personal level, this is menacing at professional level too. There should be calculated laws against this at this point. <br /><br />
+The deeper I dug, the more I realized that modern finance looks surprisingly similar to modern data science.
 
 
-I saw a tweet that read "time to start making a serious plan for the future to be off my phone in a major way" and valid thought but it isn't really affordable, hell we shouldn't have even reached this point. With the amount of digital footprint everyone has these days, no one really is safe lol (I tried downplaying it with lol but the gravity of the situation is unexplainable). What is even scarier is how fast these advancements are happening. Just last year AI used to generate images with 6 fingers in one hand and typos in every word. At this rate, by next year there will be whole videos that are gonna be indistinguishable. All AI tools should have mandatory watermarks. I'll die on this hill. And SynthID (a hidden watermark) does exist but it only works for content generated by Google AI. So it's not viable. Plus no one is gonna crosscheck every piece of content they come across for a hidden watermark. <br />
+<br/>
+Imagine that Walmart is scheduled to release its quarterly earnings report in three weeks.
 
- 
+Millions of investors want to know one thing: Did Walmart have a good quarter or a bad one?
 
-Last week in the news, there was this Pakistani newspaper that left their AI prompt in the article by mistake and it got printed along with the news. Firstly, yes, how stupid can someone be, but 2. NEWSPAPERS WERE SUPPOSED TO BE TYPED BY HAND, using PRIMARY INFORMATION. It was one of those few enduring things left. And I get that AI would help you complete the work faster so it's convenient but you probably CHOSE that profession?? Do you not like writing enough to write one article for your job.. This might soon become Lost Art. Which reminds me of another tweet I saw where a sketch artist was feeling distraught and helpless as their customer demanded refund because their drawing was "too good". It was too good and they were being accused of using AI. Well that is bound to happen with the amount of media we supply to AI, it's getting better/ more humanlike at everything it does. How sad it is that legitimate artists are now doubted and will soon get replaced. <br /><br />
+Traditionally, investors would wait for the earnings report. But quantitative hedge funds take a different approach. 
+
+Instead of waiting for the answer, they try to estimate it beforehand. The logic is simple and must be obvious by now. If more customers visited Walmart stores this quarter than last quarter, revenue will probably increase. So the real question becomes: Can we estimate customer activity before earnings are released?
+
+This is where satellites enter the story. They help spot trends before they  become public.
 
 
-Surely a coin has 2 sides, but we've now lost control of AI. I have seen so many studies on how LLMs like ChatGPT are weakening cognitive skills like critical thinking and memory and making people lazier. The fact that there exists AI for converting an AI written article/ homework to sound like it was written by a human in order to surpass AI detection tools is so ironic and mind boggling. <br />
+<br/> Counting Cars From Space-
+Suppose a satellite captures images of hundreds of Walmart stores every few days.
 
-We are doomed. Everyone needs to get more Anti-AI right away.</p>
+A human could manually count the cars, but they train computer vision models capable of automatically identifying vehicles from aerial imagery.
+
+The pipeline is similar to an object detection project in machine learning:
+
+Collect satellite imagery.
+
+Detect cars using computer vision models.
+
+Count vehicles in each image.
+
+Aggregate counts across locations.
+
+Compare against historical averages.
+
+Build predictive models for revenue.
+
+If parking lots consistently contain more vehicles than usual, that may indicate increased foot traffic. More foot traffic often means more purchases. More purchases may translate into higher earnings. This alternate data gives analysts an informational edge ahead of consensus. An upper edge over other competitors. 
+
+The signal extracted from the image is valuable. It's a distinction that appears repeatedly throughout quantitative finance.
+
+
+<br/><h3> The Rise of Alternative Data</h3>
+When I first started reading about investing, the concept of alternate data stood out to me. Alternative data refers to information that is not traditionally found in company reports. Many modern quantitative funds are obsessed with alternative data.
+
+Examples include:
+
+Satellite imagery,
+
+Credit card transaction data,
+
+Flight tracking data,
+
+Shipping records.
+
+The goal is always the same:
+
+Find information that helps estimate future business performance before the broader market notices it. Hedge funds are not merely trading firms anymore, they are data companies competing against other data companies.
+
+
+<br/>A Real Example: Oil Storage Monitoring- One of the most famous applications of satellite imagery involves oil storage facilities. I have read so many case studies on this and this example never fails to impress me.
+
+
+So, many storage tanks have floating roofs. These 'floating roofs' rise and fall with the oil level to prevent explosive vapor buildup. When oil is drawn out and the roof lowers, the tank’s outer wall casts a crescent-shaped shadow onto the sunken roof. And the shadow cast by the roof can reveal how much oil is stored inside!! (by factoring in the sun’s angle and time of day)
+
+Analyzing satellite images of these facilities, allows analysts to calculate global crude supply weeks before official government reports are released. Knowing inventory levels even slightly earlier than competitors can create a trading advantage worth millions.
+
+A report showed that hedge funds are aggressively buying alternative data, and this market is projected to hit $135.72 billion by 2030. Crazy
+
+
+<br/>
+<h3>The Quant Perspective</h3>
+Another thing I learned while researching this topic is that quantitative finance is not really about predicting markets. It is about information extraction.
+
+A satellite image is not valuable. What is valuable is converting those observations into a measurable signal that provides insight into future events.
+
+The process looks remarkably similar to building an ML system:
+
+Raw Data to Feature Engineering to Signal Generation to Prediction to Evaluation
+
+The terminology changes but the underlying ideas do not.
+
+
+One phrase that appears repeatedly in quantitative finance is signal-to noise ratio. Financial markets are incredibly noisy. Every day, markets generate an overwhelming amount of information: earnings releases, economic reports, breaking news, and millions of trades. The challenge is not finding data, it is identifying which tiny fraction of that data actually contains predictive value.
+
+
+<br/>Why This Is an Arms Race-
+The existence of a good signal creates a strange paradox. The moment everyone discovers it, it stops being valuable.
+
+Suppose ten hedge funds realize that satellite images can predict retailer performance. Soon hundreds of analysts begin monitoring the same stores. Eventually the information becomes incorporated into stock prices almost immediately and the advantage disappears. This creates a constant arms race.
+
+
+Information is everywhere. The real advantage comes from seeing value in places where everyone else sees only pixels.
+<br/>
+-Ridhima Pant</p>
+      </div>
      </section>
 
      <section id="photography" className="section photography-section">
@@ -179,7 +371,7 @@ We are doomed. Everyone needs to get more Anti-AI right away.</p>
       {/* Footer With Handwriting */}
       <footer className="footer">
         <p className="footer-main handwriting">A tiny digital corner of my mind,   by Ridhima Pant</p>
-        <p className="font-note handwriting small-note">This font is actually my handwriting!</p>
+        
       </footer>
     </div>
     </>
