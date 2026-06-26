@@ -215,7 +215,13 @@ function App() {
       </section>
       
       <section id="writing" className="section writing-section">
-       <h2 className="section-title">Writing</h2>
+       <motion.h2 
+       className="section-title"
+       initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        Writing</motion.h2>
        <p className="writing-intro">Ever since I can remember, writing has been an integral part of my life. Be it articles, journal entries, poems, news documentation, I genuinely enjoy doing it all.<br />  I got a poetry book published in <b>2020</b> and have a writing blog I started in <b>2019</b> linked here! <br/> <b>Fun Fact : This font is actually my handwriting!</b> </p>
        <a 
          href="https://www.amazon.in/Heart-Head-Hand-Ridhima-Pant/dp/9390468159" 
@@ -345,7 +351,12 @@ Information is everywhere. The real advantage comes from seeing value in places 
      </section>
 
      <section id="photography" className="section photography-section">
-      <h2 className="section-title">Photography</h2>
+      <motion.h2 className="section-title"
+      initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        >Photography</motion.h2>
 
       <div className="photo-grid">
         
