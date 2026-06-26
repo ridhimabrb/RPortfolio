@@ -34,7 +34,7 @@ function App() {
             1500,
             "AI & Machine Learning Enthusiast",
             1500,
-            "Passionate about GenAI and Deep Learning",
+            "Exploring GenAI and Deep Learning",
             1500,
           ]}
           speed={50}
